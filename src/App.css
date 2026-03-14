@@ -1,0 +1,460 @@
+.app-shell {
+  width: min(100%, 30rem);
+  margin: 0 auto;
+  padding:
+    calc(1rem + env(safe-area-inset-top, 0px))
+    1rem
+    calc(6rem + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  gap: 1rem;
+}
+
+.app-shell-workout {
+  padding-bottom: 7rem;
+}
+
+.hero-panel,
+.setup-card,
+.today-card,
+.week-card,
+.stack-card,
+.program-week,
+.workout-screen,
+.focus-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at top right, rgba(227, 84, 31, 0.24), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 100%),
+    var(--card-bg);
+}
+
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  inset: auto -2rem -3rem auto;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 125, 71, 0.28), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.eyebrow,
+.section-label,
+.metric-label,
+.week-day {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.hero-panel h1,
+.today-card h2,
+.week-card h2,
+.workout-card h3 {
+  margin: 0;
+  color: var(--text-strong);
+  line-height: 1.05;
+}
+
+.hero-panel h1 {
+  max-width: 12ch;
+  font-size: clamp(2rem, 7vw, 3.1rem);
+}
+
+.hero-copy,
+.workout-copy,
+.week-detail {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.hero-actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.primary-button,
+.secondary-button,
+.nav-link {
+  min-height: 3.5rem;
+  border: 0;
+  border-radius: 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button {
+  color: #111111;
+  background: linear-gradient(180deg, var(--accent-bright), var(--accent));
+}
+
+.secondary-button {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+}
+
+.today-card,
+.setup-card,
+.week-card,
+.stack-card {
+  padding: 1.25rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.metric-card,
+.workout-card,
+.recovery-card,
+.support-panel,
+.week-item {
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+}
+
+.setup-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.inline-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.inline-metrics div {
+  padding: 0.85rem 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.inline-metrics strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text-strong);
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field-label {
+  font-size: 0.86rem;
+  color: var(--text-soft);
+}
+
+.field input {
+  min-height: 3.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.8rem 0.95rem;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.toggle-chip {
+  min-height: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.04);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toggle-chip-active {
+  border-color: rgba(255, 134, 88, 0.45);
+  background: rgba(227, 84, 31, 0.18);
+}
+
+.metric-card {
+  padding: 0.9rem 0.85rem;
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--text-strong);
+  font-size: 1rem;
+}
+
+.workout-card {
+  margin-top: 1rem;
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.recovery-card {
+  margin-top: 1rem;
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.95rem;
+  background:
+    linear-gradient(180deg, rgba(227, 84, 31, 0.16), rgba(255, 255, 255, 0.03)),
+    var(--panel-bg);
+}
+
+.support-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0.9rem;
+}
+
+.support-panel strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text-strong);
+}
+
+.workout-card h3 {
+  font-size: 1.4rem;
+}
+
+.week-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.program-groups {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.program-week {
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  background: var(--panel-bg);
+}
+
+.program-week-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.program-week h3,
+.stack-card h2 {
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.week-item {
+  padding: 0.95rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.week-item-meta {
+  display: grid;
+  justify-items: end;
+  gap: 0.45rem;
+}
+
+.workout-screen {
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  background:
+    radial-gradient(circle at top center, rgba(255, 134, 88, 0.14), transparent 28%),
+    var(--card-bg);
+}
+
+.workout-summary {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.focus-card {
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+    var(--panel-bg);
+}
+
+.focus-reps,
+.focus-timer {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(3rem, 14vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.focus-copy {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+}
+
+.primary-button-large {
+  min-height: 4.25rem;
+  font-size: 1.05rem;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.button-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.secondary-button-compact {
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+}
+
+.week-status {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-pill-train {
+  color: #08140f;
+  background: rgba(111, 241, 167, 0.94);
+}
+
+.status-pill-rest {
+  color: #f5f0eb;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.status-pill-neutral {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  transform: translateX(-50%);
+  width: min(calc(100% - 1.5rem), 29rem);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  background: rgba(12, 14, 15, 0.88);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.34);
+}
+
+.nav-link {
+  min-height: 3rem;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.78rem;
+}
+
+.nav-link-active {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    padding-inline: 0.85rem;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-metrics,
+  .support-panel,
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .week-item,
+  .card-header,
+  .program-week-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .week-item-meta {
+    justify-items: start;
+  }
+
+  .bottom-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
