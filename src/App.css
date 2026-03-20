@@ -189,6 +189,15 @@
   color: var(--text-soft);
 }
 
+.inline-notice {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(111, 241, 167, 0.3);
+  border-radius: 1rem;
+  color: var(--text-strong);
+  background: rgba(111, 241, 167, 0.12);
+}
+
 .field input {
   min-height: 3.25rem;
   border: 1px solid var(--border);

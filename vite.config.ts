@@ -9,11 +9,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: [
         'favicon.svg',
-        'icons/icon-192x192.png',
-        'icons/icon-256x256.png',
-        'icons/icon-384x384.png',
-        'icons/icon-512x512.png',
-        'icons/icon-1024x1024.png',
+        'icons/icon-192.png',
+        'icons/icon-256.png',
+        'icons/icon-384.png',
+        'icons/icon-512.png',
+        'icons/icon-1024.png',
       ],
       manifest: {
         name: 'PullUp Ladder',
@@ -26,31 +26,17 @@ export default defineConfig({
         scope: '/',
         icons: [
           {
-            src: '/icons/icon-192x192.png',
+            src: '/icons/icon-192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any',
           },
           {
-            src: '/icons/icon-256x256.png',
-            sizes: '256x256',
-            type: 'image/png',
-            purpose: 'any',
-          },
-          {
-            src: '/icons/icon-384x384.png',
-            sizes: '384x384',
-            type: 'image/png',
-            purpose: 'any',
-          },
-          {
-            src: '/icons/icon-512x512.png',
+            src: '/icons/icon-512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any',
           },
           {
-            src: '/icons/icon-512x512.png',
+            src: '/icons/icon-512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',

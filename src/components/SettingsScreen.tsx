@@ -3,12 +3,14 @@ import type { ProgramSettings } from '../types/program'
 export function SettingsScreen({
   draftSettings,
   activeSettings,
+  notice,
   onUpdateSettings,
   onApplySettings,
   onResetProgress,
 }: {
   draftSettings: ProgramSettings
   activeSettings: ProgramSettings
+  notice: string
   onUpdateSettings: <K extends keyof ProgramSettings>(
     key: K,
     value: ProgramSettings[K],
@@ -88,6 +90,8 @@ export function SettingsScreen({
             Reset Progress
           </button>
         </div>
+
+        {notice ? <p className="inline-notice">{notice}</p> : null}
       </section>
 
       <section className="stack-card">

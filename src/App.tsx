@@ -48,6 +48,7 @@ function App() {
     date: new Date().toISOString().slice(0, 10),
     reps: `${initialAppState.programState.settings.currentMax}`,
   })
+  const [settingsNotice, setSettingsNotice] = useState('')
 
   const snapshot = getTodaySnapshot(programState)
   const today = snapshot.today
@@ -112,6 +113,7 @@ function App() {
     key: K,
     value: ProgramSettings[K],
   ) {
+    setSettingsNotice('')
     setDraftSettings((current) => ({
       ...current,
       [key]: value,
@@ -121,17 +123,17 @@ function App() {
   function applySettings() {
     setProgramState(createProgramState(draftSettings))
     setWorkoutSession(null)
-    setScreen('today')
     setMaxTestDraft((current) => ({
       ...current,
       reps: `${draftSettings.currentMax}`,
     }))
+    setSettingsNotice('Plan regenerated and saved on this device.')
   }
 
   function resetProgress() {
     setProgramState((current) => resetProgramProgress(current))
     setWorkoutSession(null)
-    setScreen('today')
+    setSettingsNotice('Progress reset. Your settings are still in place.')
   }
 
   function startWorkoutFlow(targetDay: ProgramDay = today) {
@@ -377,6 +379,7 @@ function App() {
         <SettingsScreen
           draftSettings={draftSettings}
           activeSettings={programState.settings}
+          notice={settingsNotice}
           onUpdateSettings={updateSettings}
           onApplySettings={applySettings}
           onResetProgress={resetProgress}
